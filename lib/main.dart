@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'quiz.dart';
 import 'result.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
+import 'score.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,30 +16,39 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
-      'questionText': 'What\s your favorite color?',
+      'questionText': 'Qual a idade da Terra?',
       'answers': [
-        {'text': 'Red', 'score': 10},
-        {'text': 'Green', 'score': 8},
-        {'text': 'Blue', 'score': 6},
-        {'text': 'White', 'score': 4}
+        {'text': '2021 anos!', 'score': 0},
+        {'text': '13.77 bilhões de anos!', 'score': 0},
+        {'text': '6.24 milhões de anos!', 'score': 0},
+        {'text': '4.54 bilhões de anos!', 'score': 25}
       ],
     },
     {
-      'questionText': 'What\s your favorite animal?',
+      'questionText': 'Qual a gravidade da Terra?',
       'answers': [
-        {'text': 'Dog', 'score': 8},
-        {'text': 'Cat', 'score': 6},
-        {'text': 'Rabbit', 'score': 4},
-        {'text': 'Birds', 'score': 10}
+        {'text': '7.2 m/s²', 'score': 0},
+        {'text': '2.2 m/s²', 'score': 0},
+        {'text': '9.8 m/s²', 'score': 25},
+        {'text': '-12.3 m/s²', 'score': 0}
       ],
     },
     {
-      'questionText': 'What\s your favorite food?',
+      'questionText': 'Quem propôs as Leis do Movimento Planetário?',
       'answers': [
-        {'text': 'Fries', 'score': 10},
-        {'text': 'Pizza', 'score': 8},
-        {'text': 'Pasta', 'score': 6},
-        {'text': 'Cake', 'score': 4}
+        {'text': 'Albert Einstein', 'score': 0},
+        {'text': 'Eratostenes', 'score': 0},
+        {'text': 'Johannes Kepler', 'score': 25},
+        {'text': 'Isaac Newton', 'score': 0}
+      ],
+    },
+    {
+      'questionText': 'Em que ano a humanidade pôs os pés na Lua?',
+      'answers': [
+        {'text': '1978', 'score': 0},
+        {'text': '1969', 'score': 25},
+        {'text': '1994', 'score': 0},
+        {'text': '1902', 'score': 0}
       ],
     },
   ];
@@ -73,8 +79,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color(0xffe9eff1),
         appBar: AppBar(
-          title: Text("My First App"),
+          title: Text("CosmoQuiz!"),
+          centerTitle: true,
         ),
         body: _questionIndex < _questions.length
             ? Quiz(
@@ -83,6 +91,7 @@ class _MyAppState extends State<MyApp> {
                 questions: _questions,
               )
             : Result(_totalScore, _resetQuiz),
+        bottomNavigationBar: Score(_totalScore),
       ),
     );
   }

@@ -9,14 +9,14 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     String resultText;
 
-    if (resultScore <= 8) {
-      resultText = 'You are awesome and innocent';
-    } else if (resultScore <= 12) {
-      resultText = 'Pretty likeable!';
-    } else if (resultScore <= 16) {
-      resultText = 'You are ... strange?!';
+    if (resultScore == 0) {
+      resultText = 'Você é da Terra mesmo? 🤔';
+    } else if (resultScore == 25) {
+      resultText = 'Isso mesmo! Nos vivemos na Terra! 🌍';
+    } else if (resultScore == 75) {
+      resultText = 'Astronomia é só amor! ✨';
     } else {
-      resultText = 'You are so bad!';
+      resultText = 'It\'s not rocket science!\nCongrats!\n🚀';
     }
 
     return resultText;
@@ -26,6 +26,7 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             resultPhrase,

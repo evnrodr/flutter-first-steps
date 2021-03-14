@@ -10,12 +10,17 @@ class Answser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 40,
+      margin: EdgeInsets.all(6),
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.blue),
           foregroundColor: MaterialStateProperty.all(Colors.white),
         ),
-        child: Text(answerText),
+        child: Text(
+          answerText,
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         onPressed: selectHandler,
       ),
     );

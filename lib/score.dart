@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Question extends StatelessWidget {
-  final String questionText;
+class Score extends StatelessWidget {
+  final int totalScore;
 
-  Question(this.questionText);
+  Score(this.totalScore);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
       margin: EdgeInsets.all(10),
       child: Text(
-        questionText,
-        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        'Pontos: $totalScore',
+        style: TextStyle(
+            fontSize: 28, fontWeight: FontWeight.bold, color: Colors.indigo),
         textAlign: TextAlign.center,
       ),
     );
